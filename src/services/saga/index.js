@@ -8,14 +8,15 @@ export function* workFetchUsers() {
       "https://jsonplaceholder.typicode.com/users"
     );
     // yield axios.then((response) => ({ response }));
-    let userNames = [];
+    let userData = [];
     for (const i of resultUsers.data) {
-      userNames.push(i.name);
+      userData.push(i);
       yield put({
         type: ACTION_TYPES.FETCH_USERS_SUCCESS,
-        payload: userNames,
+        payload: userData,
       });
     }
+    console.log(userData);
   } catch (err) {
     yield put({
       type: ACTION_TYPES.FETCH_USERS_FAILURE,
