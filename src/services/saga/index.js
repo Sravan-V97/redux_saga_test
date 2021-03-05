@@ -16,7 +16,6 @@ export function* workFetchUsers() {
         payload: userData,
       });
     }
-    console.log(userData);
   } catch (err) {
     yield put({
       type: ACTION_TYPES.FETCH_USERS_FAILURE,
